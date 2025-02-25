@@ -1,0 +1,152 @@
+/* =============================== */
+/* 🌟 Cart Page - Enhanced Styling 🌟 */
+/* =============================== */
+
+.cart-page {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* 🛒 Stylish Header */
+  .cart-page h2 {
+    font-size: 28px;
+    color: #222;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cart-page h2::before {
+    content: "🛍️";
+    font-size: 30px;
+    margin-right: 10px;
+  }
+  
+  /* 📝 Cart Items List */
+  .cart-page ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* 🎨 Individual Cart Item */
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 🖼️ Product Image */
+  .cart-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 🛍️ Product Name & Price */
+  .cart-item span {
+    flex-grow: 1;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  /* ❌ Remove Button */
+  .remove-btn {
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 7px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+  }
+  
+  .remove-btn:hover {
+    background: #cc0000;
+    transform: scale(1.1);
+  }
+  
+  /* 💰 Total Amount */
+  .cart-total {
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    background: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .cart-total:hover {
+    transform: scale(1.05);
+  }
+  
+  /* 🛍️ Checkout Button */
+  .checkout-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 22px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    animation: bounce 1.5s infinite;
+  }
+  
+  .checkout-btn:hover {
+    background: linear-gradient(135deg, #ff5733, #ff8c00);
+    transform: scale(1.1);
+  }
+  
+  /* ✨ Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 🔄 Checkout Button Bounce Animation */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  

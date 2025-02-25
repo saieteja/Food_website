@@ -1,0 +1,133 @@
+/* 🌟 Payment Page Container */
+.payment-page {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* 💳 Payment Title */
+  .payment-page h2 {
+    font-size: 26px;
+    color: #222;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 📝 Payment Form */
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .payment-form label {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 12px;
+    margin: 5px 0;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+  }
+  
+  .payment-form input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+  }
+  
+  .payment-form label:hover {
+    background: #f8d7da;
+    transform: scale(1.02);
+  }
+  
+  /* 💳 Card & UPI Details */
+  .card-details, .upi-details {
+    background: #fff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-details label, .upi-details label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 8px;
+    display: block;
+  }
+  
+  .card-details input, .upi-details input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s;
+  }
+  
+  .card-details input:focus, .upi-details input:focus {
+    border-color: #ff6b6b;
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(255, 107, 107, 0.5);
+  }
+  
+  /* 🛒 Place Order Button */
+  .place-order-btn {
+    margin-top: 20px;
+    padding: 12px 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    animation: bounce 1.5s infinite;
+  }
+  
+  .place-order-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    animation: none;
+  }
+  
+  .place-order-btn:hover {
+    background: linear-gradient(135deg, #ff5733, #ff8c00);
+    transform: scale(1.05);
+  }
+  
+  /* ✨ Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 🔄 Checkout Button Bounce Animation */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  

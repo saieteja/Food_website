@@ -1,0 +1,103 @@
+.restaurant-list {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .restaurants-section {
+    width: 100%;
+    margin-bottom: 40px; /* Space between restaurant section and food items */
+  }
+  
+  .restaurant-list h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .restaurants {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling */
+  }
+  
+  .restaurant-card {
+    text-align: center;
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+    padding: 15px;
+    border-radius: 12px; /* Rounded corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .restaurant-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px; /* Smooth rounded corners */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .restaurant-card h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: white; /* Makes text stand out */
+    font-weight: bold;
+  }
+  
+  .restaurant-card:hover img {
+    transform: scale(1.1); /* Zooms image on hover */
+  }
+
+  .restaurant-card:hover {
+    box-shadow: 0px 8px 16px rgba(255, 94, 0, 0.5); /* Orange glow effect */
+    border-radius: 8px; /* Smooth edges */
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+
+.food-items-section {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffcc70, #ff7e5f); /* Attractive background */
+    border-radius: 12px;
+    margin-top: 30px;
+    box-shadow: 0px 4px 10px rgba(255, 94, 0, 0.5); /* Glow effect */
+  }
+  
+  .food-items-section h2 {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .food-items-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling */
+    padding: 10px;
+  }
+  
+  .food-item-card {
+    text-align: center;
+    width: 250px; /* Adjusted width for better alignment */
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .food-item-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .food-item-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.3);
+  }
+  

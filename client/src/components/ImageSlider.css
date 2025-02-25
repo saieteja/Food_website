@@ -1,0 +1,85 @@
+.full-screen-slider {
+  width: 80%;
+  margin: auto;
+  padding: 20px 0;
+  perspective: 1000px; /* Enable 3D perspective */
+}
+
+.slider-item {
+  position: relative;
+  transition: transform 0.5s ease;
+  overflow: hidden; /* Hide overflow */
+  margin: 0 5px; /* Slight gap between images */
+}
+
+/* Shadow and hover effects */
+.slider-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Soft shadow */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Include box-shadow in transition */
+}
+
+/* Active slide styles */
+.slider-item.slick-active .slider-image {
+  transform: scale(1.1) rotateY(0deg); /* Zoom active slide */
+  box-shadow: 0 8px 30px rgba(0, 128, 255, 0.7); /* Colorful shadow for active slide */
+}
+
+/* Non-active slides rotation and scaling */
+.slider-item:not(.slick-active) .slider-image {
+  transform: scale(0.8) rotateY(10deg); /* Slight rotation and scaling for non-active slides */
+}
+
+/* Hover effect */
+.slider-item:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 8px 25px rgba(255, 165, 0, 0.7); /* Colorful shadow on hover */
+}
+
+/* Navigation buttons styling */
+.slick-prev, .slick-next {
+  font-size: 24px;
+  color: #fff;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for buttons */
+  border-radius: 50%; /* Circular buttons */
+  padding: 10px; /* Padding around buttons */
+}
+
+/* Dots styling */
+.slick-dots li button:before {
+  color: white;
+  font-size: 12px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: black;
+}
+
+/* Creative animation for slides */
+@keyframes slideRotateIn {
+  0% {
+      transform: translateX(-50px) rotateY(20deg);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0) rotateY(0);
+      opacity: 1;
+  }
+}
+
+.slider-item {
+  animation: slideRotateIn 0.5s ease forwards; /* Animate slides with rotation */
+}
+
+/* Additional effect for sliding out */
+.slider-item.slick-active {
+  animation: slideRotateIn 0.5s ease forwards; /* Animate active slide */
+}
+
+.slider-item:not(.slick-active) {
+  animation: none; /* Disable animation for non-active slides */
+}
