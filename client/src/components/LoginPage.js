@@ -14,7 +14,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://food-hub-6.onrender.com/api/auth/login`, {
+      const response = await axios.post(`https://food-website-2-twmj.onrender.com/api/auth/login`, {
         email,
         password,
       });

@@ -14,7 +14,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://food-hub-6.onrender.com/api/auth/register`, { // Update the URL as needed
+      const response = await axios.post(`https://food-website-2-twmj.onrender.com/api/auth/register`, { // Update the URL as needed
         email,
         password,
       });
