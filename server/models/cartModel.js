@@ -6,7 +6,7 @@ const cartSchema = new mongoose.Schema({
   price: { type: Number, required: true }
 });
 
-// Check if the model already exists before defining it again
+// Prevent Overwrite Error
 const Cart = mongoose.models.Cart || mongoose.model('Cart', cartSchema);
 
 module.exports = Cart;

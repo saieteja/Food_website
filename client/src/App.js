@@ -18,25 +18,26 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/cart")
+    fetch("https://food-website-qcnd.onrender.com/cart")  // Updated API URL
       .then(res => res.json())
       .then(data => setCart(data))
       .catch(err => console.error("Error fetching cart:", err));
-  }, []);
+}, []);
 
-  const addToCart = (item) => {
-    fetch("http://localhost:5000/cart", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(item)
+const addToCart = (item) => {
+    fetch("https://food-website-qcnd.onrender.com/cart", {  // Updated API URL
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(item)
     }).then(() => setCart([...cart, item]));
-  };
+};
 
-  const removeFromCart = (id) => {
-    fetch(`http://localhost:5000/cart/${id}`, {
-      method: "DELETE"
+const removeFromCart = (id) => {
+    fetch(`https://food-website-qcnd.onrender.com/cart/${id}`, {  // Updated API URL
+        method: "DELETE"
     }).then(() => setCart(cart.filter(item => item._id !== id)));
-  };
+};
+
 
   const handleAboutClick = () => {
     if (aboutRef.current) {
