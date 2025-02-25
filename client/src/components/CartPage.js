@@ -14,8 +14,8 @@ function CartPage({ cartItems, removeFromCart }) {
       ) : (
         <>
           <ul>
-            {cartItems.map((item, index) => (
-              <li key={item._id || index} className="cart-item">
+            {cartItems.map((item) => (
+              <li key={item._id} className="cart-item">
                 <img src={`/assets/${item.image}`} alt={item.name} />
                 <span>{item.name} - ₹{item.price}</span>
                 <button className="remove-btn" onClick={() => removeFromCart(item._id)}>➖</button>

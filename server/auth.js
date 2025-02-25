@@ -1,11 +1,11 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const User = require('./models/User'); // Adjust the path to your User model
+const User = require('./User'); // Adjust the path to your User model
 
 const router = express.Router();
 
 // Registration route
-router.post('/api/auth/register', async (req, res) => {
+router.post('/register', async (req, res) => {
   console.log('Registration request body:', req.body); // Log incoming request body
   const { email, password } = req.body;
 
@@ -29,7 +29,7 @@ router.post('/api/auth/register', async (req, res) => {
 });
 
 // Login route
-router.post('/api/auth/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   console.log('Login request body:', req.body); // Log incoming request body
   const { email, password } = req.body;
 

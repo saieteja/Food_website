@@ -18,26 +18,25 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch("https://foodies-websites.netlify.app/cart")  
+    fetch("http://localhost:5000/cart")
       .then(res => res.json())
       .then(data => setCart(data))
       .catch(err => console.error("Error fetching cart:", err));
-}, []);
+  }, []);
 
-const addToCart = (item) => {
-    fetch("https://foodies-websites.netlify.app/cart", {  // Updated API URL
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(item)
+  const addToCart = (item) => {
+    fetch("http://localhost:5000/cart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(item)
     }).then(() => setCart([...cart, item]));
-};
+  };
 
-const removeFromCart = (id) => {
-    fetch(`https://foodies-websites.netlify.app/cart/${id}`, {  // Updated API URL
-        method: "DELETE"
+  const removeFromCart = (id) => {
+    fetch(`http://localhost:5000/cart/${id}`, {
+      method: "DELETE"
     }).then(() => setCart(cart.filter(item => item._id !== id)));
-};
-
+  };
 
   const handleAboutClick = () => {
     if (aboutRef.current) {

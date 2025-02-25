@@ -4,25 +4,28 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
+const BASE_URL = "http://192.168.31.172:5000"; // Your server's IP address
+ // Change to your server's IP address
+
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loginStatus, setLoginStatus] = useState(''); // Change to track login status
+  const [message, setMessage] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://food-website-2-twmj.onrender.com/api/auth/login`, {
+      const response = await axios.post(`${BASE_URL}/api/auth/login`, {
         email,
         password,
       });
+      setMessage(response.data.message);
       dispatch({ type: "LOGIN_SUCCESS", payload: { email } }); // Dispatch login action
-      setLoginStatus('Yes'); // Set status to 'Yes' on successful login
       navigate("/"); // Redirect to home page after login
     } catch (error) {
-      setLoginStatus('No'); // Set status to 'No' on failed login
+      setMessage(error.response?.data?.error || "Login failed");
     }
   };
 
@@ -48,7 +51,7 @@ const LoginPage = () => {
         />
         <button type="submit" className="login-btn">Login</button>
       </form>
-      {loginStatus && <p className="status-message">{loginStatus}</p>} {/* Display 'Yes' or 'No' */}
+      {message && <p className="message">{message}</p>} {/* Display message */}
     </div>
   );
 };
