@@ -18,14 +18,14 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch("https://food-website-qcnd.onrender.com/cart")  // Updated API URL
+    fetch("https://foodies-websites.netlify.app/cart")  
       .then(res => res.json())
       .then(data => setCart(data))
       .catch(err => console.error("Error fetching cart:", err));
 }, []);
 
 const addToCart = (item) => {
-    fetch("https://food-website-qcnd.onrender.com/cart", {  // Updated API URL
+    fetch("https://foodies-websites.netlify.app/cart", {  // Updated API URL
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(item)
@@ -33,7 +33,7 @@ const addToCart = (item) => {
 };
 
 const removeFromCart = (id) => {
-    fetch(`https://food-website-qcnd.onrender.com/cart/${id}`, {  // Updated API URL
+    fetch(`https://foodies-websites.netlify.app/cart/${id}`, {  // Updated API URL
         method: "DELETE"
     }).then(() => setCart(cart.filter(item => item._id !== id)));
 };

@@ -11,12 +11,13 @@ const MONGO_URI = process.env.MONGO_URI || "your-mongodb-uri-here";
 
 // Middleware
 app.use(express.json());
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://foodies-websites.netlify.app");
-  res.header("Access-Control-Allow-Methods", "GET,POST,DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
-  next();
-});
+
+// CORS configuration
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://foodies-websites.netlify.app'], // Allow both localhost and Netlify
+  methods: ['GET', 'POST', 'DELETE'], // Specify allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+}));
 
 // Connect to MongoDB
 mongoose.connect(MONGO_URI, {

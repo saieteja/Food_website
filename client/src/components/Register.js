@@ -4,28 +4,25 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
-const BASE_URL = "http://192.168.31.172:5000";
-// Change to your server's IP address
-
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const [registrationStatus, setRegistrationStatus] = useState(''); // Track registration status
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${BASE_URL}/api/auth/register`, {
+      const response = await axios.post(`https://food-hub-6.onrender.com/api/auth/register`, { // Update the URL as needed
         email,
         password,
       });
-      setMessage(response.data.message);
+      setRegistrationStatus('Yes'); // Set status to 'Yes' on successful registration
       dispatch({ type: "REGISTER_SUCCESS", payload: { email } }); // Dispatch registration action
       navigate("/"); // Redirect to home page after registration
     } catch (error) {
-      setMessage(error.response?.data?.error || 'Registration failed');
+      setRegistrationStatus('No'); // Set status to 'No' on failed registration
     }
   };
 
@@ -51,7 +48,7 @@ const Register = () => {
         />
         <button type="submit" className="login-btn">Register</button>
       </form>
-      {message && <p className="message">{message}</p>}
+      {registrationStatus && <p className="status-message">{registrationStatus}</p>} {/* Display 'Yes' or 'No' */}
     </div>
   );
 };
