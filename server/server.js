@@ -8,21 +8,10 @@ const routes = require('./routes'); // Import cart routes
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || "your-mongodb-uri-here";
-app.get('/',(req,res)=>{
-  res.send("working")
-})
 
 // Middleware
-
-// app.use(express.json());
-// app.use(cors({ origin: ["http://localhost:3000", "http://192.168.31.172:3000"] })); // Allow frontend requests from both origins
-
-
-app.use(cors({
-  origin: ["http://localhost:3000", "https://fooodies-website.netlify.app"], // Allow localhost & Netlify frontend
-  methods: ["GET", "POST", "DELETE", "PUT"], // Allow specific HTTP methods
-  credentials: true // Allow cookies and headers
-}));
+app.use(express.json());
+app.use(cors({ origin: ["http://localhost:3000", "http://192.168.31.172:3000"] })); // Allow frontend requests from both origins
 
 // app.get('/',(req,res)=>{
 //   res.send("working")
