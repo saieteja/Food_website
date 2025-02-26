@@ -17,7 +17,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://fooodies-website.netlify.app/api/auth/login`, {
+      const response = await axios.post(`https://food-website-6.onrender.com/api/auth/login`, {
         email,
         password,
       });

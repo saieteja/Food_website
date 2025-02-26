@@ -17,7 +17,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://fooodies-website.netlify.app/api/auth/register`, {
+      const response = await axios.post(`https://food-website-6.onrender.com/api/auth/register`, {
         email,
         password,
       });
