@@ -9,9 +9,17 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || "your-mongodb-uri-here";
 
+app.get('/',(req,res)=>{
+  res.send("working")
+})
+
 // Middleware
 app.use(express.json());
 app.use(cors({ origin: ["http://localhost:3000", "http://192.168.31.172:3000"] })); // Allow frontend requests from both origins
+
+// app.get('/',(req,res)=>{
+//   res.send("working")
+// })
 
 // Connect to MongoDB
 mongoose.connect(MONGO_URI, {
