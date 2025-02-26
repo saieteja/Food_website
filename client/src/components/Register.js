@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
-const BASE_URL = "http://192.168.31.172:5000";
+// const BASE_URL = "http://192.168.31.172:5000";
 // Change to your server's IP address
 
 const Register = () => {
@@ -17,7 +17,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${BASE_URL}/api/auth/register`, {
+      const response = await axios.post(`https://fooodies-website.netlify.app/api/auth/register`, {
         email,
         password,
       });
