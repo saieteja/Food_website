@@ -12,7 +12,7 @@ import CartPage from './components/CartPage';
 import PaymentPage from './components/PaymentPage';
 import './App.css';
 
-const BACKEND_URL = "https://food-website-6.onrender.com";
+const BACKEND_URL = "https://food-website-4-svwp.onrender.com";
 
 function App() {
   const aboutRef = useRef(null);
