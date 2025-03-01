@@ -18,14 +18,14 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/cart")
+    fetch("https://food-website-4-svwp.onrender.com/cart")
       .then(res => res.json())
       .then(data => setCart(data))
       .catch(err => console.error("Error fetching cart:", err));
   }, []);
 
   const addToCart = (item) => {
-    fetch("http://localhost:5000/cart", {
+    fetch("https://food-website-4-svwp.onrender.com/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(item)
@@ -33,7 +33,7 @@ function App() {
   };
 
   const removeFromCart = (id) => {
-    fetch(`http://localhost:5000/cart/${id}`, {
+    fetch(`https://food-website-4-svwp.onrender.com/cart/${id}`, {
       method: "DELETE"
     }).then(() => setCart(cart.filter(item => item._id !== id)));
   };
