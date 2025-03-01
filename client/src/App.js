@@ -20,14 +20,14 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch(`${BACKEND_URL}/cart`)
+    fetch(`${BACKEND_URL}/api/cart`)
       .then(res => res.json())
       .then(data => setCart(data))
       .catch(err => console.error("Error fetching cart:", err));
   }, []);
 
   const addToCart = (item) => {
-    fetch(`${BACKEND_URL}/cart`, {
+    fetch(`${BACKEND_URL}/api/cart`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(item)
@@ -38,7 +38,7 @@ function App() {
   };
 
   const removeFromCart = (id) => {
-    fetch(`${BACKEND_URL}/cart/${id}`, {
+    fetch(`${BACKEND_URL}/api/cart/${id}`, {
       method: "DELETE"
     })
     .then(() => setCart(cart.filter(item => item._id !== id)))
