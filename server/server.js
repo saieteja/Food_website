@@ -13,6 +13,10 @@ const MONGO_URI = process.env.MONGO_URI || "your-mongodb-uri-here";
 app.use(express.json());
 app.use(cors({ origin: ["http://localhost:3000", "http://192.168.31.172:3000", "https://remarkable-donut-a6f225.netlify.app"] })); // Allow frontend requests from both origins
 
+app.get('/',(req,res)=>{
+  res.send("Your tube is working")
+})
+
 // app.get('/',(req,res)=>{
 //   res.send("working")
 // })

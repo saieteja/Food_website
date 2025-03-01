@@ -12,30 +12,37 @@ import CartPage from './components/CartPage';
 import PaymentPage from './components/PaymentPage';
 import './App.css';
 
+const BACKEND_URL = "https://food-website-6.onrender.com";
+
 function App() {
   const aboutRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/cart")
+    fetch(`${BACKEND_URL}/cart`)
       .then(res => res.json())
       .then(data => setCart(data))
       .catch(err => console.error("Error fetching cart:", err));
   }, []);
 
   const addToCart = (item) => {
-    fetch("http://localhost:5000/cart", {
+    fetch(`${BACKEND_URL}/cart`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(item)
-    }).then(() => setCart([...cart, item]));
+    })
+    .then(res => res.json())
+    .then((newItem) => setCart([...cart, newItem]))
+    .catch(err => console.error("Error adding item to cart:", err));
   };
 
   const removeFromCart = (id) => {
-    fetch(`http://localhost:5000/cart/${id}`, {
+    fetch(`${BACKEND_URL}/cart/${id}`, {
       method: "DELETE"
-    }).then(() => setCart(cart.filter(item => item._id !== id)));
+    })
+    .then(() => setCart(cart.filter(item => item._id !== id)))
+    .catch(err => console.error("Error removing item from cart:", err));
   };
 
   const handleAboutClick = () => {
