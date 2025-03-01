@@ -12,37 +12,30 @@ import CartPage from './components/CartPage';
 import PaymentPage from './components/PaymentPage';
 import './App.css';
 
-const BACKEND_URL = "https://food-website-4-svwp.onrender.com";
-
 function App() {
   const aboutRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch(`${BACKEND_URL}/api/cart`)
+    fetch("http://localhost:5000/cart")
       .then(res => res.json())
       .then(data => setCart(data))
       .catch(err => console.error("Error fetching cart:", err));
   }, []);
 
   const addToCart = (item) => {
-    fetch(`${BACKEND_URL}/api/cart`, {
+    fetch("http://localhost:5000/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(item)
-    })
-    .then(res => res.json())
-    .then((newItem) => setCart([...cart, newItem]))
-    .catch(err => console.error("Error adding item to cart:", err));
+    }).then(() => setCart([...cart, item]));
   };
 
   const removeFromCart = (id) => {
-    fetch(`${BACKEND_URL}/api/cart/${id}`, {
+    fetch(`http://localhost:5000/cart/${id}`, {
       method: "DELETE"
-    })
-    .then(() => setCart(cart.filter(item => item._id !== id)))
-    .catch(err => console.error("Error removing item from cart:", err));
+    }).then(() => setCart(cart.filter(item => item._id !== id)));
   };
 
   const handleAboutClick = () => {

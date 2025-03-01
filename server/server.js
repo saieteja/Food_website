@@ -14,12 +14,8 @@ app.use(express.json());
 app.use(cors({ origin: ["http://localhost:3000", "http://192.168.31.172:3000", "https://remarkable-donut-a6f225.netlify.app"] })); // Allow frontend requests from both origins
 
 app.get('/',(req,res)=>{
-  res.send("website is working")
+  res.send("working")
 })
-
-// app.get('/',(req,res)=>{
-//   res.send("working")
-// })
 
 // Connect to MongoDB
 mongoose.connect(MONGO_URI, {
@@ -38,7 +34,7 @@ const cartSchema = new mongoose.Schema({
 const Cart = mongoose.model('Cart', cartSchema);
 
 // Cart Routes
-app.get('/api/cart', async (req, res) => {
+app.get('/cart', async (req, res) => {
   try {
     const cartItems = await Cart.find();
     res.json(cartItems);
@@ -47,7 +43,7 @@ app.get('/api/cart', async (req, res) => {
   }
 });
 
-app.post('/api/cart', async (req, res) => {
+app.post('/cart', async (req, res) => {
   try {
     const newItem = new Cart(req.body);
     await newItem.save();
@@ -57,7 +53,7 @@ app.post('/api/cart', async (req, res) => {
   }
 });
 
-app.delete('/api/cart/:id', async (req, res) => {
+app.delete('/cart/:id', async (req, res) => {
   try {
     await Cart.findByIdAndDelete(req.params.id);
     res.json({ message: 'Item removed from cart' });
